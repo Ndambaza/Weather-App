@@ -65,6 +65,32 @@ function formatDay(timestamp) {
   return days[date.getDay()];
 }
 
+let temperatureElement = document.querySelector("#temperature");
+let celsiusLink = document.querySelector("#celsius-link");
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+
+celsiusLink.addEventListener("click", convertToFahrenheit);
+fahrenheitLink.addEventListener("click", convertToCelsius);
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperature = parseFloat(temperatureElement.innerHTML);
+  temperatureElement.innerHTML = Math.round(temperature * 1.8 + 32);
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let temperature = parseFloat(temperatureElement.innerHTML);
+  temperatureElement.innerHTML = Math.round(((temperature - 32) * 5) / 9);
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+}
+
+// Set the initial unit as Celsius
+celsiusLink.classList.add("active");
+
 function getForecast(city) {
   let apiKey = "b984974777eta0e26ff2f6c4c3ob0f17";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
@@ -99,35 +125,6 @@ function displayForecast(response) {
 
   let forecastElement = document.querySelector("#forecast");
   forecastElement.innerHTML = forecastHtml;
-}
-
-let celsiusElement = document.querySelector("#celsius-link");
-celsiusElement.addEventListener("click", convertTemperature);
-
-let fahrenheitElement = document.querySelector("#fahrenheit-link");
-fahrenheitElement.addEventListener("click", convertTemperature);
-
-function convertTemperature() {
-  let temperature = document.querySelector("#temperature");
-
-  if (isCelsius) {
-    // Convert Celsius to Fahrenheit
-    let celsius = Number(temperature.innerHTML);
-    let fahrenheit = (celsius * 9) / 5 + 32;
-
-    temperature.innerHTML = fahrenheit;
-    // document.querySelector("#celsius-link").innerHTML = "Convert to Celsius";
-    isCelsius = false;
-  } else {
-    // Convert Fahrenheit to Celsius
-    let fahrenheit = Number(temperature.innerHTML);
-    let celsius = ((fahrenheit - 32) * 5) / 9;
-
-    temperature.innerHTML = celsius;
-    // document.querySelector("#fahrenheit-link").innerHTML =
-    //   "Convert to Fahrenheit";
-    isCelsius = true;
-  }
 }
 
 function changeTheme() {

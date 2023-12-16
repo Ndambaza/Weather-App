@@ -130,9 +130,9 @@ main {
 
 .night-theme {
   background-color: navy;
-  color: whitesmoke;
+  color: rgb(239, 235, 239);
 }
-.weather-app.night-theme {
+.night-theme .weather-app {
   background: rgb(62, 26, 192);
   max-width: 600px;
   margin: 45px auto;
@@ -141,8 +141,28 @@ main {
   padding: 30px;
 }
 
-.search-form-button.night-theme {
+.night-theme .search-form-button {
   background: linear-gradient(to right, #9999ff 30%, #000099 100%);
+}
+.night-theme .search-form-input {
+  background-color: darkblue;
+  color: aliceblue;
+}
+
+.night-theme .weather-forecast {
+  color: whitesmoke;
+}
+
+.night-theme .weather-forecast-temperatures {
+  color: lightslategray;
+}
+
+.night-theme .weather-app-data {
+  color: lightslategray;
+}
+
+.night-theme .weather-app-details {
+  color: #9999ff;
 }
 
 footer {

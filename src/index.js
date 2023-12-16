@@ -101,6 +101,35 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHtml;
 }
 
+let celsiusElement = document.querySelector("#celsius-link");
+celsiusElement.addEventListener("click", convertTemperature);
+
+let fahrenheitElement = document.querySelector("#fahrenheit-link");
+fahrenheitElement.addEventListener("click", convertTemperature);
+
+function convertTemperature() {
+  let temperature = document.querySelector("#temperature");
+
+  if (isCelsius) {
+    // Convert Celsius to Fahrenheit
+    let celsius = Number(temperature.innerHTML);
+    let fahrenheit = (celsius * 9) / 5 + 32;
+
+    temperature.innerHTML = fahrenheit;
+    // document.querySelector("#celsius-link").innerHTML = "Convert to Celsius";
+    isCelsius = false;
+  } else {
+    // Convert Fahrenheit to Celsius
+    let fahrenheit = Number(temperature.innerHTML);
+    let celsius = ((fahrenheit - 32) * 5) / 9;
+
+    temperature.innerHTML = celsius;
+    // document.querySelector("#fahrenheit-link").innerHTML =
+    //   "Convert to Fahrenheit";
+    isCelsius = true;
+  }
+}
+
 function changeTheme() {
   const currentTime = new Date();
   const currentHour = currentTime.getHours();

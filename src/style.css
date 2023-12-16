@@ -119,6 +119,15 @@ main {
   justify-content: space-between;
 }
 
+.celusis-temp {
+  display: flex;
+  margin-top: 6px;
+}
+.farenheit-temp {
+  display: flex;
+  margin-top: 6px;
+}
+
 .night-theme {
   background-color: navy;
   color: whitesmoke;

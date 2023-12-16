@@ -134,19 +134,19 @@ function changeTheme() {
   const currentTime = new Date();
   const currentHour = currentTime.getHours();
 
-  if (currentHour >= 7 && currentHour < 18) {
-    // Apply day theme
-    document.body.classList.remove("night-theme");
-    document.body.classList.add("day-theme");
-  } else {
+  if (currentHour >= 18 || currentHour < 7) {
     // Apply night theme
     document.body.classList.remove("day-theme");
     document.body.classList.add("night-theme");
+  } else {
+    // Apply day theme
+    document.body.classList.remove("night-theme");
+    document.body.classList.add("day-theme");
   }
 }
 
 // Trigger the theme change function every minute
-setInterval(changeTheme, 60000);
+setInterval(changeTheme, 1);
 
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);

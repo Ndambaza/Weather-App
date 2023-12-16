@@ -130,7 +130,7 @@ main {
 
 .night-theme {
   background-color: navy;
-  color: rgb(239, 235, 239);
+  color: whitesmoke;
 }
 .night-theme .weather-app {
   background: rgb(62, 26, 192);
@@ -146,7 +146,7 @@ main {
 }
 .night-theme .search-form-input {
   background-color: darkblue;
-  color: aliceblue;
+  color: whitesmoke;
 }
 
 .night-theme .weather-forecast {
@@ -154,15 +154,23 @@ main {
 }
 
 .night-theme .weather-forecast-temperatures {
-  color: lightslategray;
+  color: whitesmoke;
 }
 
 .night-theme .weather-app-data {
-  color: lightslategray;
+  color: whitesmoke;
 }
 
 .night-theme .weather-app-details {
-  color: #9999ff;
+  color: whitesmoke;
+}
+
+.night-theme .weather-forecast-date {
+  color: whitesmoke;
+}
+
+.night-theme footer {
+  color: whitesmoke;
 }
 
 footer {

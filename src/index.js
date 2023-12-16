@@ -101,6 +101,24 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHtml;
 }
 
+function changeTheme() {
+  const currentTime = new Date();
+  const currentHour = currentTime.getHours();
+
+  if (currentHour >= 7 && currentHour < 18) {
+    // Apply day theme
+    document.body.classList.remove("night-theme");
+    document.body.classList.add("day-theme");
+  } else {
+    // Apply night theme
+    document.body.classList.remove("day-theme");
+    document.body.classList.add("night-theme");
+  }
+}
+
+// Trigger the theme change function every minute
+setInterval(changeTheme, 60000);
+
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
